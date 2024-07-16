@@ -75,7 +75,7 @@
         function getNamesFromUrl() {
             const params = new URLSearchParams(window.location.search);
             const namesParam = params.get('names');
-            return namesParam ? namesParam.split(',') : ["John Smith","Larry John"];
+            return namesParam ? namesParam.split(',') : ["John Smith", "Larry John"];
         }
 
         const names = getNamesFromUrl();
