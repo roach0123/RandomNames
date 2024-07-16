@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+        }
+        .circle {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+            border-radius: 50%;
+            background-color: #3498db;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 10px;
+            position: relative;
+        }
+        .circle:hover::after {
+            content: attr(data-fullname);
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #555;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            white-space: nowrap;
+            font-size: 16px;
+        }
+        .button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #2ecc71;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #27ae60;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="names"></div>
+        <button class="button" onclick="refreshNames()">Refresh</button>
+    </div>
+
+    <script>
+        const names = ["John Doe", "Jane Smith", "Alice Johnson", "Bob Brown", "Charlie Davis"];
+
+        function getInitials(name) {
+            const nameParts = name.split(' ');
+            return nameParts[0][0] + nameParts[1][0];
+        }
+
+        function shuffle(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+        function refreshNames() {
+            const namesContainer = document.getElementById('names');
+            namesContainer.innerHTML = '';
+            shuffle(names);
+            names.forEach(name => {
+                const initials = getInitials(name);
+                const circle = document.createElement('div');
+                circle.className = 'circle';
+                circle.textContent = initials;
+                circle.setAttribute('data-fullname', name);
+                namesContainer.appendChild(circle);
+            });
+        }
+
+        window.onload = refreshNames;
+    </script>
+</body>
+</html>
