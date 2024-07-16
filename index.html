@@ -12,9 +12,15 @@
             height: 100vh;
             background-color: #f0f0f0;
             margin: 0;
+            flex-direction: column;
         }
         .container {
             text-align: center;
+        }
+        .row {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
         }
         .circle {
             display: inline-block;
@@ -32,7 +38,7 @@
         .circle:hover::after {
             content: attr(data-fullname);
             position: absolute;
-            top: 70px; /* Adjust this to position the tooltip below the circle */
+            top: 70px;
             left: 50%;
             transform: translateX(-50%);
             background-color: #555;
@@ -66,10 +72,16 @@
     </div>
 
     <script>
-        const names = ["Anthony Marlow", "Delia Kontaxakis", "Johnny Gregurich", "Patricio Ferreira", "Sam Roach"];
+        function getNamesFromUrl() {
+            const params = new URLSearchParams(window.location.search);
+            const namesParam = params.get('names');
+            return namesParam ? namesParam.split(',') : ["Anthony Marlow", "Delia Kontaxakis", "Johnny Gregurich", "Patricio Ferreira", "Sam Roach"];
+        }
+
+        const names = getNamesFromUrl();
 
         function getInitials(name) {
-            const nameParts = name.split(' ');
+            const nameParts = name.trim().split(' ');
             return nameParts[0][0] + nameParts[1][0];
         }
 
@@ -84,13 +96,19 @@
             const namesContainer = document.getElementById('names');
             namesContainer.innerHTML = '';
             shuffle(names);
-            names.forEach(name => {
+            let row;
+            names.forEach((name, index) => {
+                if (index % 6 === 0) {
+                    row = document.createElement('div');
+                    row.className = 'row';
+                    namesContainer.appendChild(row);
+                }
                 const initials = getInitials(name);
                 const circle = document.createElement('div');
                 circle.className = 'circle';
                 circle.textContent = initials;
                 circle.setAttribute('data-fullname', name);
-                namesContainer.appendChild(circle);
+                row.appendChild(circle);
             });
         }
 
