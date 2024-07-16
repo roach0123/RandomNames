@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
@@ -33,7 +32,7 @@
         .circle:hover::after {
             content: attr(data-fullname);
             position: absolute;
-            top: -30px;
+            top: 70px; /* Adjust this to position the tooltip below the circle */
             left: 50%;
             transform: translateX(-50%);
             background-color: #555;
@@ -42,6 +41,7 @@
             border-radius: 5px;
             white-space: nowrap;
             font-size: 16px;
+            z-index: 10;
         }
         .button {
             display: inline-block;
