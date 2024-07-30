@@ -95,7 +95,15 @@
         function getNamesFromUrl() {
             const params = new URLSearchParams(window.location.search);
             const namesParam = params.get('names');
-            return namesParam ? namesParam.split(',') : ["John Smith", "Larry John"];
+            return namesParam ? namesParam.split(',') : [
+                "Mickey Mouse",
+                "John Smith",
+                "Minnie Mouse",
+                "Goofy Goof",
+                "Daisy Duck",
+                "Casey Jones",
+                "Wendy Darling"
+            ];
         }
 
         // Function to get initials from name
