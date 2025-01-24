@@ -164,17 +164,28 @@
             document.getElementById('time').textContent = `Current time: ${hours}:${minutes} ${ampm}`;
         }
 
-        // Function to fetch the quote of the day
+        // Function to fetch the quote of the day from ZenQuotes API
         async function fetchQuote() {
             try {
-                const response = await fetch('https://api.quotable.io/random');
+                const response = await fetch('https://zenquotes.io/api/random');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
                 const data = await response.json();
-                document.getElementById('quote').textContent = `"${data.content}" - ${data.author}`;
+                if (Array.isArray(data) && data.length > 0) {
+                    const quote = data[0].q;
+                    const author = data[0].a;
+                    document.getElementById('quote').textContent = `"${quote}" - ${author}`;
+                } else {
+                    throw new Error('Unexpected API response structure');
+                }
             } catch (error) {
                 console.error('Error fetching quote:', error);
+                // Fallback quote in case of an error
                 document.getElementById('quote').textContent = `"The best way to predict the future is to create it." - Peter Drucker`;
             }
         }
+
 
         // Function to fetch the background image
         async function fetchPhoto() {
