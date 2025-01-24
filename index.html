@@ -122,7 +122,7 @@
         </p>
         <p id="quote-author"></p>
         <div id="names"></div>
-        <button class="button" onclick="refreshNames()">Refresh</button>
+        <button class="button" onclick="refreshNames();displayRandomQuote();">Refresh</button>
     </div>
     <script>
     const quotes = [
@@ -175,7 +175,65 @@
         { "q": "Society is composed of two great classes those who have more dinners than appetite, and those who have more appetite than dinners.", "a": "Nicolas Chamfort" },
         { "q": "Your time is limited, so don't waste it living someone elses. life. Don't be trapped by dogma - which is living with the results of other people's thinking.", "a": "Steve Jobs" },
         { "q": "Everything you've ever wanted is on the other side of fear.", "a": "George Addair" },
-        { "q": "Be content with what you have, rejoice in the way things are. When you realize there is nothing lacking, the whole world belongs to you.", "a": "Lao Tzu" }
+        { "q": "Be content with what you have, rejoice in the way things are. When you realize there is nothing lacking, the whole world belongs to you.", "a": "Lao Tzu" },
+        { "q": "All our dreams can come true, if we have the courage to pursue them.", "a": "Walt Disney" },
+        { "q": "The flower that blooms in adversity is the most rare and beautiful of all.", "a": "The Emperor, Mulan" },
+        { "q": "Just keep swimming.", "a": "Dory, Finding Nemo" },
+        { "q": "The past can hurt. But the way I see it, you can either run from it, or learn from it.", "a": "Rafiki, The Lion King" },
+        { "q": "You're braver than you believe, stronger than you seem, and smarter than you think.", "a": "Christopher Robin, Winnie the Pooh" },
+        { "q": "The only way to get what you want in this world is through hard work.", "a": "Tiana, The Princess and the Frog" },
+        { "q": "Adventure is out there.", "a": "Ellie, Up" },
+        { "q": "The only thing predictable about life is its unpredictability.", "a": "Remy, Ratatouille" },
+        { "q": "Coming together is a beginning, staying together is progress, and working together is success.", "a": "Henry Ford" },
+        { "q": "Alone we can do so little; together we can do so much.", "a": "Helen Keller" },
+        { "q": "It is amazing what you can accomplish if you do not care who gets the credit.", "a": "Harry S. Truman" },
+        { "q": "If everyone is moving forward together, then success takes care of itself.", "a": "Henry Ford" },
+        { "q": "Teamwork is the ability to work together toward a common vision.", "a": "Andrew Carnegie" },
+        { "q": "None of us is as smart as all of us.", "a": "Ken Blanchard" },
+        { "q": "The strength of the team is each individual member. The strength of each member is the team.", "a": "Phil Jackson" },
+        { "q": "Unity is strength... when there is teamwork and collaboration, wonderful things can be achieved.", "a": "Mattie Stepanek" },
+        { "q": "Talent wins games, but teamwork and intelligence win championships.", "a": "Michael Jordan" },
+        { "q": "Coming together is a beginning, keeping together is progress, working together is success.", "a": "Edward Everett Hale" },
+        { "q": "Success is best when it’s shared.", "a": "Howard Schultz" },
+        { "q": "Individually, we are one drop. Together, we are an ocean.", "a": "Ryunosuke Satoro" },
+        { "q": "Great things in business are never done by one person; they're done by a team of people.", "a": "Steve Jobs" },
+        { "q": "Teamwork begins by building trust.", "a": "Patrick Lencioni" },
+        { "q": "None of us, including me, ever do great things. But we can all do small things, with great love, and together we can do something wonderful.", "a": "Mother Teresa" },
+        { "q": "The way a team plays as a whole determines its success.", "a": "Babe Ruth" },
+        { "q": "When you hand good people possibility, they do great things.", "a": "Biz Stone" },
+        { "q": "Teamwork makes the dream work.", "a": "John C. Maxwell" },
+        { "q": "If you want to lift yourself up, lift up someone else.", "a": "Booker T. Washington" },
+        { "q": "A single leaf working alone provides no shade.", "a": "Chuck Page" },
+        { "q": "You don’t build a business. You build people, and then people build the business.", "a": "Zig Ziglar" },
+        { "q": "Coming together is a beginning; keeping together is progress; working together is success.", "a": "Edward Everett Hale" },
+        { "q": "The nicest thing about teamwork is that you always have others on your side.", "a": "Margaret Carty" },
+        { "q": "Hard work keeps the wrinkles out of the mind and spirit.", "a": "Helena Rubinstein" },
+        { "q": "Surround yourself with a trusted and loyal team. It makes all the difference.", "a": "Alison Pincus" },
+        { "q": "Trust is knowing that when a team member does push you, they're doing it because they care about the team.", "a": "Patrick Lencioni" },
+        { "q": "The best teamwork comes from men who are working independently toward one goal in unison.", "a": "James Cash Penney" },
+        { "q": "Effort and courage are not enough without purpose and direction.", "a": "John F. Kennedy" },
+        { "q": "No one can whistle a symphony. It takes a whole orchestra to play it.", "a": "H.E. Luccock" },
+        { "q": "The strength of the team is each individual member. The strength of each member is the team.", "a": "Phil Jackson" },
+        { "q": "Success is not the work of one, but the work of many.", "a": "Unknown" },
+        { "q": "Together, ordinary people can achieve extraordinary results.", "a": "Becka Schoettle" },
+        { "q": "A successful team is a group of many hands and one mind.", "a": "Bill Bethel" },
+        { "q": "The achievements of an organization are the results of the combined effort of each individual.", "a": "Vince Lombardi" },
+        { "q": "The way to achieve your own success is to be willing to help somebody else get it first.", "a": "Iyanla Vanzant" },
+        { "q": "None of us is as smart as all of us.", "a": "Ken Blanchard" },
+        { "q": "Collaboration allows us to know more than we are capable of knowing by ourselves.", "a": "Paul Solarz" },
+        { "q": "The whole is greater than the sum of its parts.", "a": "Aristotle" },
+        { "q": "It takes two flints to make a fire.", "a": "Louisa May Alcott" },
+        { "q": "Coming together is a beginning. Keeping together is progress. Working together is success.", "a": "Henry Ford" },
+        { "q": "Teamwork divides the task and multiplies the success.", "a": "Unknown" },
+        { "q": "Only by binding together as a single force will we remain strong and unconquerable.", "a": "Chris Bradford" },
+        { "q": "We are not a team because we work together. We are a team because we respect, trust, and care for each other.", "a": "Vala Afshar" },
+        { "q": "Find a group of people who challenge and inspire you, spend a lot of time with them, and it will change your life forever.", "a": "Amy Poehler" },
+        { "q": "If you can laugh together, you can work together.", "a": "Robert Orben" },
+        { "q": "No one of us is as good as all of us.", "a": "Ray Kroc" },
+        { "q": "The best way to find yourself is to lose yourself in the service of others.", "a": "Mahatma Gandhi" },
+        { "q": "Together we can do great things.", "a": "Mother Teresa" },
+        { "q": "Synergy — the bonus that is achieved when things work together harmoniously.", "a": "Mark Twain" }
+
     ]
 
 
