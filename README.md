@@ -11,7 +11,7 @@ A team dashboard that shuffles names into a random order, displays them as color
 
 ## Usage
 
-Open the app and paste in a list of names (comma or newline separated). Hit **Shuffle Names** — or `Cmd+Enter` — to display the shuffled grid.
+Open the app and paste in a list of names (comma or newline separated). Hit **Shuffle Names** (or `Cmd+Enter`) to display the shuffled grid.
 
 To share a shuffled view, click the **link icon** in the top-right corner of the card. It copies a URL with the names encoded as a query parameter:
 
@@ -26,4 +26,4 @@ python3 -m http.server 8080
 # open http://localhost:8080
 ```
 
-A local server is required — `fetch()` is blocked over `file://`.
+A local server is required; `fetch()` is blocked over `file://`.

@@ -224,7 +224,7 @@ const fetchPhoto = async () => {
  * Renders the page by initializing all components.
  */
 var renderPage = async function () {
-  // Determine which view to show synchronously — no flicker
+  // Determine which view to show synchronously, no flicker
   const names = getNamesFromUrl();
   if (names.length === 0) {
     showNameForm();
