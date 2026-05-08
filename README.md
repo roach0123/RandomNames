@@ -7,7 +7,7 @@ A team dashboard that shuffles names into a random order, displays them as color
 | | |
 |---|---|
 | **Default** | https://roach0123.github.io/RandomNames/ |
-| **Example with names** | https://roach0123.github.io/RandomNames/index.html?names=Mickey%20Mouse,Donald%20Duck,Goofy%20Goof,Minnie%20Mouse,Simba%20Lion,Belle%20French,Ariel%20Ocean,Elsa%20Ice,Tiana%20Frog |
+| **Example with names** | https://roach0123.github.io/RandomNames/?names=Mickey%20Mouse,Donald%20Duck,Goofy%20Goof,Minnie%20Mouse,Simba%20Lion,Belle%20French,Ariel%20Ocean,Elsa%20Ice,Tiana%20Frog |
 
 ## Usage
 
