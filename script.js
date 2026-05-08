@@ -62,7 +62,9 @@ const parseNamesInput = (text) => {
 };
 
 const showNameForm = () => {
-  document.getElementById('footer-text').style.display = 'none';
+  const footer = document.getElementById('footer-text');
+  footer.style.display = 'block';
+  footer.style.visibility = 'hidden';
   document.getElementById('share-btn').style.display = 'none';
   document.getElementById('dashboard-section').style.display = 'none';
   document.getElementById('name-form-section').style.display = 'block';
@@ -79,6 +81,7 @@ const showDashboard = () => {
   const footer = document.getElementById('footer-text');
   dash.style.display = 'block';
   footer.style.display = 'block';
+  footer.style.visibility = 'visible';
   fadeIn(dash);
   fadeIn(footer);
   document.getElementById('share-btn').style.display = 'flex';

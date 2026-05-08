@@ -29,7 +29,7 @@ body {
 }
 
 .fade-in {
-    animation: fadeUp 0.32s ease both;
+    animation: fadeUp 0.32s ease backwards;
 }
 
 /* ── Frosted glass card ──────────────────────────── */
@@ -71,12 +71,20 @@ body {
     transition: background 0.15s, color 0.15s, transform 0.15s;
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
+    z-index: 10;
 }
 
 .share-button:hover {
     background: rgba(255, 255, 255, 0.95);
     color: #1a1a2e;
     transform: scale(1.1);
+}
+
+#share-icon {
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .share-button.copied {
@@ -92,15 +100,13 @@ body {
     font-weight: 700;
     letter-spacing: -0.02em;
     margin: 0 0 6px;
-    color: #fff;
-    text-shadow: 0 1px 6px rgba(0,0,0,0.6), 0 3px 16px rgba(0,0,0,0.4);
+    color: #1a1a2e;
 }
 
 .form-subtitle {
     font-size: 0.88em;
     margin: 0 0 18px;
-    color: rgba(255,255,255,0.85);
-    text-shadow: 0 1px 4px rgba(0,0,0,0.45);
+    color: #555;
 }
 
 #names-input {
@@ -191,7 +197,7 @@ body {
 #time {
     font-size: 0.75em;
     font-weight: 600;
-    color: #888;
+    color: #555;
     margin: 0;
     text-transform: uppercase;
     letter-spacing: 0.1em;

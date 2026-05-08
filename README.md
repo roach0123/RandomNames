@@ -1,26 +1,29 @@
 # Random Names
 
-This project displays names in a random order with their initials shown in styled circles. The full name appears when hovering over each circle.
+A team dashboard that shuffles names into a random order, displays them as color-coded initials circles, and shows a motivational quote over a random background photo.
+
+## Live
+
+| | |
+|---|---|
+| **Default** | https://roach0123.github.io/RandomNames/ |
+| **Example with names** | https://roach0123.github.io/RandomNames/index.html?names=Mickey%20Mouse,Donald%20Duck,Goofy%20Goof,Minnie%20Mouse,Simba%20Lion,Belle%20French,Ariel%20Ocean,Elsa%20Ice,Tiana%20Frog |
 
 ## Usage
 
-The application allows you to specify a list of names via URL parameters. The names will be shuffled and displayed as circles containing their initials.
+Open the app and paste in a list of names (comma or newline separated). Hit **Shuffle Names** — or `Cmd+Enter` — to display the shuffled grid.
 
-### Example
+To share a shuffled view, click the **link icon** in the top-right corner of the card. It copies a URL with the names encoded as a query parameter:
 
-You can see an example with the following names:
+```
+https://roach0123.github.io/RandomNames/?names=First+Last,First+Last,...
+```
 
-- Mickey Mouse
-- Donald Duck
-- Goofy Goof
-- Minnie Mouse
-- Simba Lion
-- Belle French
-- Ariel Ocean
-- Elsa Ice
-- Tiana Frog
+## Running locally
 
-[Example with names](https://roach0123.github.io/RandomNames/index.html?names=Mickey%20Mouse,Donald%20Duck,Goofy%20Goof,Minnie%20Mouse,Simba%20Lion,Belle%20French,Ariel%20Ocean,Elsa%20Ice,Tiana%20Frog)
+```bash
+python3 -m http.server 8080
+# open http://localhost:8080
+```
 
-```plaintext
-https://roach0123.github.io/RandomNames/index.html?names=Mickey%20Mouse,Donald%20Duck,Goofy%20Goof,Minnie%20Mouse,Simba%20Lion,Belle%20French,Ariel%20Ocean,Elsa%20Ice,Tiana%20Frog
+A local server is required — `fetch()` is blocked over `file://`.
