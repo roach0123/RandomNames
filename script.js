@@ -230,6 +230,7 @@ var renderPage = async function () {
     showNameForm();
   } else {
     currentNames = names;
+    history.replaceState(null, '', window.location.pathname.replace(/\/index\.html$/, '/'));
     showDashboard();
     refreshNames();
   }
